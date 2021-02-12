@@ -4,6 +4,6 @@ jdk:
 deploy:
   provider: heroku
   api-key: $HEROKU_API_KEY
-  app: addresbook
+  app: addresbook-sysc
 on:
   branch: master
