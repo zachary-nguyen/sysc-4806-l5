@@ -20,6 +20,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+apply plugin: org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 
 test {
     useJUnitPlatform()
