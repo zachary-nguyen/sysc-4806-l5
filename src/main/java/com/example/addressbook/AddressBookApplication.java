@@ -25,10 +25,10 @@ public class AddressBookApplication {
         return (args) -> {
             log.info("Creating Buddies");
             // create and save buddies
-            BuddyInfo mike = new BuddyInfo(1,"Mike",12);
-            BuddyInfo bob = new BuddyInfo(2,"Bob",22);
-            BuddyInfo peter = new BuddyInfo(3,"Peter",32);
-            BuddyInfo sylvie = new BuddyInfo(4,"Sylvie",42);
+            BuddyInfo mike = new BuddyInfo(1,"Mike",12, "123 Street Ave");
+            BuddyInfo bob = new BuddyInfo(2,"Bob",22,"123 Street Ave");
+            BuddyInfo peter = new BuddyInfo(3,"Peter",32, "123 Street Ave");
+            BuddyInfo sylvie = new BuddyInfo(4,"Sylvie",10,"123 Street Ave");
 
             buddyInfoRepository.save(mike);
             buddyInfoRepository.save(bob);

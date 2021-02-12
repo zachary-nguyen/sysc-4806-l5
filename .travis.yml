@@ -3,7 +3,7 @@ jdk:
   - openjdk8
 deploy:
   provider: heroku
-  api-key: $HEROKU_API_KEY
+  api_key: $HEROKU_API_KEY
   app: addresbook-sysc
 on:
-  branch: master
+  all_branches: true
