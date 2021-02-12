@@ -1,4 +1,4 @@
-package com.example.accessingdatajpa;
+package com.example.addressbook;
 
 import javax.persistence.*;
 import java.util.ArrayList;
