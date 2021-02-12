@@ -1,8 +1,7 @@
-package com.example.testingweb;
+package test;
 
 import com.example.addressbook.AddressBookApplication;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
