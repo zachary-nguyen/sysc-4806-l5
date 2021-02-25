@@ -4,7 +4,7 @@ $(document).ready(function() {
     function fetchData(){
         $("#list").children().remove();
         $.ajax({
-                url: "http://localhost:8080/addressbook/1/buddies"
+                url: "/addressbook/1/buddies"
             }).then(function(data) {
                   const buddies = data._embedded.buddyinfo;
                   console.log(buddies)
@@ -20,7 +20,7 @@ $(document).ready(function() {
             $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "http://localhost:8080/addressbook-spa",
+                    url: "/addressbook-spa",
                     data:  JSON.stringify({
                                 name: $("#Name").val(),
                                age: $("#Age").val(),
