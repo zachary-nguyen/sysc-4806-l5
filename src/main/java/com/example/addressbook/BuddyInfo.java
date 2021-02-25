@@ -6,19 +6,22 @@ import javax.persistence.*;
 public class BuddyInfo {
 
     @Id
-    private final int id;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String name;
-
     private int age;
-
     private String address;
 
     public BuddyInfo(){
-        this.id = -1;
         this.name = "";
         this.age = -1;
         this.address = "";
+    }
+
+    public BuddyInfo(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
     }
 
     public BuddyInfo(int id, String name, int age, String address) {

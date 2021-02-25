@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+
 
 @Controller
 public class AddressBookController {
@@ -26,8 +28,39 @@ public class AddressBookController {
     }
 
     @PostMapping("/addressbook")
-    public String addressBookSubmit(@ModelAttribute AddressBook addressBook, Model model) {
-        model.addAttribute("addressBook", addressBook);
+    @Transactional
+    public String addressBookSubmit(@ModelAttribute BuddyForm buddyForm, Model model) {
+        AddressBook addressBook = addressBookRepository.findById(1);
+
+        // only create if valid fields
+        if(!buddyForm.getAddress().isEmpty() && !buddyForm.getAge().isEmpty() && !buddyForm.getAddress().isEmpty()){
+            BuddyInfo buddyInfo = new BuddyInfo(buddyForm.getName(), Integer.parseInt(buddyForm.getAge()),buddyForm.getAddress());
+            addressBook.addBuddy(buddyInfo);
+            this.addressBookRepository.save(addressBook);
+            model.addAttribute("addressBook", addressBook);
+        }
         return "addressbook";
     }
+
+    @PostMapping("/addressbook-spa")
+    @Transactional
+    @ResponseBody
+    public String addressBookSubmitSPA(@RequestBody BuddyForm buddyForm, Model model) {
+        AddressBook addressBook = addressBookRepository.findById(1);
+
+        // only create if valid fields
+        if(!buddyForm.getAddress().isEmpty() && !buddyForm.getAge().isEmpty() && !buddyForm.getAddress().isEmpty()){
+            BuddyInfo buddyInfo = new BuddyInfo(buddyForm.getName(), Integer.parseInt(buddyForm.getAge()),buddyForm.getAddress());
+            addressBook.addBuddy(buddyInfo);
+            addressBookRepository.save(addressBook);
+        }
+
+        return "addressbook-spa";
+    }
+
+    @GetMapping("/addressbook-spa")
+    public String addressBookSpa() {
+        return "addressbook-spa";
+    }
+
 }

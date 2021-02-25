@@ -6,12 +6,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-@EnableJpaRepositories("com.example.addressbook")
 public class AddressBookApplication {
 
     private static final Logger log = LoggerFactory.getLogger(AddressBookApplication.class);
@@ -25,10 +22,10 @@ public class AddressBookApplication {
         return (args) -> {
             log.info("Creating Buddies");
             // create and save buddies
-            BuddyInfo mike = new BuddyInfo(1,"Mike",12, "123 Street Ave");
-            BuddyInfo bob = new BuddyInfo(2,"Bob",22,"123 Street Ave");
-            BuddyInfo peter = new BuddyInfo(3,"Peter",32, "123 Street Ave");
-            BuddyInfo sylvie = new BuddyInfo(4,"Sylvie",10,"123 Street Ave");
+            BuddyInfo mike = new BuddyInfo("Mike",12, "123 Street Ave");
+            BuddyInfo bob = new BuddyInfo("Bob",22,"123 Street Ave");
+            BuddyInfo peter = new BuddyInfo("Peter",32, "123 Street Ave");
+            BuddyInfo sylvie = new BuddyInfo("Sylvie",10,"123 Street Ave");
 
             buddyInfoRepository.save(mike);
             buddyInfoRepository.save(bob);

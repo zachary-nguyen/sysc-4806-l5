@@ -10,7 +10,7 @@ public class AddressBook{
     @Id
     private final int id;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<BuddyInfo> buddies;
 
     // Constructor
